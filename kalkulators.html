@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+    /* <![CDATA[ */
+    circle {
+      fill: yellow;
+      stroke: blue;
+      stroke-width: 5px; 
+    }
+    rect {
+      fill: yellow;
+      stroke: red;
+      stroke-width: 5px; 
+    }
+    text {
+		fill:blue;
+		font-family:Verdana; font-size:50px; 
+		text-anchor:middle;
+	}
+    /* ]]> */
+</style>
+
+<script>
+var a1 = 0;
+var a2 = 0;
+var a_komanda = "";
+
+function f(poga) {
+	if(poga == "c")
+	{
+		a1 = 0;
+        a2 = 0;
+		a_komanda = "";
+	}
+    else if(poga=="+" || poga== "-" || poga=='x' || poga==':')
+    {
+   		 a_komanda=poga;
+   		 a2=a1;
+         a1=0;     
+    }
+ 	else if(poga=="=")
+    {
+    	if (a_komanda=='-')
+    		a1=a2-a1;
+    	else if (a_komanda=='x')
+    		a1=a2*a1;
+	    else if (a_komanda==':')
+    		a1=a2/a1;
+		else
+			a1=a1+a2;
+    
+        a2=0;
+   		a_komanda='';
+	}
+	else
+	{
+		a1 = a1*10 + poga;
+	}
+
+	var rezultats = document.getElementById("cipari");
+    rezultats.textContent = a1;
+}
+</script>
+
+<svg width="330" height="400">
+	<rect width="330" height="400" style="fill:grey;stroke-width:3;stroke:grey" />
+	<line x1="0" y1="100" x2="330" y2="100" style="stroke:rgb(255,0,0);stroke-width:2" />
+	
+	<text id="cipari" x="300" y="70"  style="text-anchor:end" >0</text> 
+
+	<g onclick="f(1)">  
+		<circle cx="60" cy="150" r="30" />
+		<text x="57" y="170" >1</text> 
+	</g>
+    <g onclick="f(2)">  
+   		<circle cx="130" cy="150" r="30" />
+		<text x="127" y="170" >2</text> 
+	</g>
+	<g onclick="f(3)">  
+		<circle cx="200" cy="150" r="30" />
+		<text x="197" y="170" >3</text> 
+	</g>
+	<g onclick="f(4)">  
+		<circle cx="60" cy="220" r="30" />
+		<text x="57" y="240" >4</text> 
+	</g>
+	<g onclick="f(5)">  
+		<circle cx="130" cy="220" r="30" />
+		<text x="127" y="240" >5</text> 
+	</g>
+	<g onclick="f(6)">  
+		<circle cx="200" cy="220" r="30" />
+		<text x="197" y="240" >6</text> 
+	</g>
+	<g onclick="f(7)">  
+		<circle cx="60" cy="290" r="30" />
+		<text x="57" y="310" >7</text> 
+	</g>
+	<g onclick="f(8)">  
+		<circle cx="130" cy="290" r="30" />
+		<text x="127" y="310" >8</text> 
+	</g>
+	<g onclick="f(9)">  
+		<circle cx="200" cy="290" r="30" />
+		<text x="197" y="310" >9</text> 
+	</g>
+	<g onclick="f(0)">  
+		<circle cx="130" cy="360" r="30"  />
+		<text x="127" y="380" >0</text>
+	</g>
+
+   
+	<g onclick="f('+')">  
+		<rect x="250" y="120" width="60" height="60" />
+		<text x="277" y="170" >+</text>
+	</g>
+
+	<g onclick="f('-')">  
+		<rect x="250" y="190" width="60" height="60" />
+		<text x="277" y="240" >-</text> 
+	</g>
+
+	<g onclick="f('x')">  
+		<rect x="250" y="260" width="60" height="60" />
+		<text x="277" y="310" >x</text>
+	</g>
+
+	<g onclick="f(':')">  
+		<rect x="250" y="330" width="60" height="60" />
+		<text x="277" y="380" >:</text>
+	</g>
+
+	<g onclick="f('c')">  
+		<rect x="30" y="330" width="60" height="60" />
+		<text x="57" y="380" >C</text>    
+	</g>
+
+    <g onclick="f('=')">  
+    	<rect x="170" y="330" width="60" height="60" />
+    	<text x="197" y="380" >=</text> 
+    </g>  
+
+</svg> 
+<div>Šo kalulatoru uzprogrammēja Emīls Skadiņš ar tēti!</div>
+</body>
+</html>
