@@ -1,2 +1,3 @@
 # programmas
-kalkulators
+[kalkulators](kalkulators.html)
+
