@@ -23,9 +23,6 @@ function init_size()
     margin:0;
     padding:0;  
 }
-.center {
-    margin: auto;
-}
 
 circle {
       fill: yellow;
@@ -85,7 +82,7 @@ function f(poga) {
 	rezultats.textContent = a1;
 }
 </script>
-<div class="center">
+<div style="text-align:center">
 <svg id="main_svg" width="330" height="400" viewBox="0 0 330 400">
 	<rect width="330" height="400" style="fill:grey;stroke-width:3;stroke:grey" />
 	<line x1="0" y1="100" x2="330" y2="100" style="stroke:rgb(255,0,0);stroke-width:2" />
@@ -96,7 +93,7 @@ function f(poga) {
 		<circle cx="60" cy="150" r="30" />
 		<text x="57" y="170" >1</text> 
 	</g>
-    <g onclick="f(2)">  
+	<g onclick="f(2)">  
    		<circle cx="130" cy="150" r="30" />
 		<text x="127" y="170" >2</text> 
 	</g>
@@ -166,6 +163,6 @@ function f(poga) {
 
 </svg> 
 </div>
-<div class="center">Šo kalulatoru uzprogrammēja Emīls Skadiņš ar tēti!</div>
+<div style="text-align:center">Šo kalulatoru uzprogrammēja Emīls Skadiņš ar tēti!</div>
 </body>
 </html>
