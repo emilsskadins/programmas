@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
-<body>
+<script>
+function init_size()
+{
+	var el = document.getElementById("main_svg");
+	var rect = el.getBoundingClientRect();
+	var	zoomfactor_x = Math.round(window.innerWidth/rect.width *100 - 1);
+   	var zoomfactor_y = Math.round(window.innerHeight/rect.height *100 -1);
+	var zoomfactor=Math.min(zoomfactor_x, zoomfactor_y);
+    
+	el.setAttribute("width", rect.width*zoomfactor/100);
+	el.setAttribute("height", rect.height*zoomfactor/100);
+}
+</script>
+
+<body onload="init_size()">
 
 <style>
     /* <![CDATA[ */
@@ -64,7 +78,7 @@ function f(poga) {
 }
 </script>
 
-<svg width="330" height="400">
+<svg id="main_svg" width="330" height="400" viewBox="0 0 330 400">
 	<rect width="330" height="400" style="fill:grey;stroke-width:3;stroke:grey" />
 	<line x1="0" y1="100" x2="330" y2="100" style="stroke:rgb(255,0,0);stroke-width:2" />
 	
