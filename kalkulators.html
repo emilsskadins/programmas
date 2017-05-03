@@ -5,7 +5,7 @@ function init_size()
 {
 	var el = document.getElementById("main_svg");
 	var rect = el.getBoundingClientRect();
-	var	zoomfactor_x = Math.round(window.innerWidth/rect.width *100 - 1);
+	var zoomfactor_x = Math.round(window.innerWidth/rect.width *100 - 1);
    	var zoomfactor_y = Math.round(window.innerHeight/rect.height *100 -1);
 	var zoomfactor=Math.min(zoomfactor_x, zoomfactor_y);
     
@@ -17,23 +17,29 @@ function init_size()
 <body onload="init_size()">
 
 <style>
-    /* <![CDATA[ */
+/* <![CDATA[ */
+
 *, html {
     margin:0;
     padding:0;  
 }
-
+body {
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+}
+	
 circle {
       fill: yellow;
       stroke: blue;
       stroke-width: 5px; 
     }
-    rect {
+rect {
       fill: yellow;
       stroke: red;
       stroke-width: 5px; 
     }
-    text {
+text {
 		fill:blue;
 		font-family:Verdana; font-size:50px; 
 		text-anchor:middle;
@@ -50,28 +56,27 @@ function f(poga) {
 	if(poga == "c")
 	{
 		a1 = 0;
-        a2 = 0;
+		a2 = 0;
 		a_komanda = "";
 	}
-    else if(poga=="+" || poga== "-" || poga=='x' || poga==':')
-    {
+	else if(poga=="+" || poga== "-" || poga=='x' || poga==':')
+	{
    		 a_komanda=poga;
    		 a2=a1;
-         a1=0;     
-    }
+		 a1=0;     
+	}
  	else if(poga=="=")
-    {
-    	if (a_komanda=='-')
-    		a1=a2-a1;
-    	else if (a_komanda=='x')
-    		a1=a2*a1;
-	    else if (a_komanda==':')
-    		a1=a2/a1;
+	{
+    		if (a_komanda=='-')
+    			a1=a2-a1;
+    		else if (a_komanda=='x')
+    			a1=a2*a1;
+	    	else if (a_komanda==':')
+    			a1=a2/a1;
 		else
 			a1=a1+a2;
-    
-        a2=0;
-   		a_komanda='';
+		a2=0;
+		a_komanda='';
 	}
 	else
 	{
@@ -79,7 +84,7 @@ function f(poga) {
 	}
 
 	var rezultats = document.getElementById("cipari");
-    rezultats.textContent = a1;
+	rezultats.textContent = a1;
 }
 </script>
 
